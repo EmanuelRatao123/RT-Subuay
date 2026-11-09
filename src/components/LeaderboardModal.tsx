@@ -3,7 +3,7 @@ import { LeaderboardEntry, PlayerStats } from '../types/game';
 import { fetchNoCoinLeaderboard, isSupabaseConfigured } from '../lib/supabase';
 import { formatNoCoinTime, SKINS } from '../game/constants';
 import { soundManager } from '../audio/soundManager';
-import { ArrowLeft, Trophy, Crown, RefreshCw, Flame, UserCheck, CloudCheck, WifiOff } from 'lucide-react';
+import { ArrowLeft, Trophy, Crown, RefreshCw, Flame, UserCheck } from 'lucide-react';
 
 interface Props {
   stats: PlayerStats;
@@ -79,19 +79,14 @@ export const LeaderboardModal: React.FC<Props> = ({ stats, onBack }) => {
         {/* Connection status notice */}
         <div className="flex items-center justify-between px-4 py-2.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs">
           <div className="flex items-center gap-2">
-            {isSupabaseConfigured ? (
-              <>
-                <CloudCheck className="w-4 h-4 text-emerald-400" />
-                <span className="text-slate-300">Conectado ao Supabase (Ranking em Tempo Real)</span>
-              </>
-            ) : (
-              <>
-                <WifiOff className="w-4 h-4 text-amber-400" />
-                <span className="text-slate-400">
-                  Ranking Offline / Local (Configure VITE_SUPABASE_URL para ranking global em nuvem)
-                </span>
-              </>
-            )}
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
+            <span className="text-emerald-400 font-bold">Servidor Online</span>
+            <span className="text-slate-500">•</span>
+            <span className="text-slate-300">
+              {isSupabaseConfigured
+                ? 'Nuvem Conectada'
+                : 'Ranking Ativo em Tempo Real'}
+            </span>
           </div>
 
           <div className="flex items-center gap-1.5 font-bold text-slate-300">
