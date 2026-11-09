@@ -1,0 +1,6 @@
+{
+  "name": "RT Subway",
+  "description": "Jogo 3D de corrida infinita inspirado em Subway Surfers com modos Normal e No Coin, 12 personagens, 6 mapas mundiais e ranking global.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
